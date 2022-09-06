@@ -1,9 +1,11 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import Catalogo from "../../screens/Catalogo";
-import PageProduct from "../../screens/PageProduct";
+import PageProduct, { IProps } from "../../screens/PageProduct";
 import CustomStack from '../../components/HeaderCustom/CustomLeft/index';
 import CustomRight from "../../components/HeaderCustom/CustomRight";
+import GoBack from '../../assets/goBack.png'
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Stack = createStackNavigator();
 
@@ -14,16 +16,19 @@ export default function MyStack() {
       screenOptions={{
         cardStyle: { backgroundColor: "#DEDEDE" },
         headerStyle: { backgroundColor: "#FFFFFF" },
-        headerLeft: () => <CustomStack />,
         headerRight: () => <CustomRight />
       }}
-    // headerBar={(props)=><CustomStack {...props}>},
 
     >
       <Stack.Screen
-        options={{ title: "" }}
+        options={{ title: "", headerLeft: () => <CustomStack />, }}
         name="Home" component={Catalogo} />
-      <Stack.Screen name="PageProduct" component={PageProduct} />
+      <Stack.Screen
+        name="PageProduct"
+        options={{ title: "",headerStyle: {backgroundColor: '#DEDEDE'}
+      // headerLeft: () => <TouchableOpacity><Image source={GoBack} wid/></TouchableOpacity>
+      }}
+        component={PageProduct as any} />
     </Stack.Navigator>
   )
 }

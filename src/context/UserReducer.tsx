@@ -3,7 +3,7 @@ export interface ICounter {
 }
 
 export const InitialState: ICounter = {
-  counter: 7,
+  counter: 0,
 }
 
 export const UserReducer = (state: ICounter) =>{

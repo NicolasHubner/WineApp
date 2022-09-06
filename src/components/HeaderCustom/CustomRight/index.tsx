@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, Image } from 'react-native';
-import { SvgUri } from 'react-native-svg';
 import WineBox from '../../../assets/carrinhoWineBox.png';
 import {UserContext,  IValue } from '../../../context/UserContext';
-// import { ICounter, UserContext } from '../../../context/UserReducer';
 
 export default function CustomHeader (){
 
