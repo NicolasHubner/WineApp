@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { SafeAreaView, Text, Image, TextInput } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -8,6 +8,7 @@ import Selos from '../../assets/selos.png';
 import { useFonts } from 'expo-font';
 import SearchBar from '../../assets/Search.png'
 import { useNavigation } from '@react-navigation/native';
+import { UserContext, IValue } from '../../context/UserContext';
 
 
 export default function () {
@@ -16,10 +17,11 @@ export default function () {
   const [fontsLoaded] = useFonts({
     'Lato': require('../../assets/fonts/Lato-Regular.ttf'),
     'OpenSans': require('../../assets/fonts/open-sans-v34-latin-regular.ttf'),
-    'NeoSans': require('../../assets/fonts/NeoSansPro-Regular.ttf')
+    // 'NeoSans': require('../../assets/fonts/NeoSansPro-Regular.ttf')
   });
 
   const navigation = useNavigation() as INavigation;
+  const { dispatch } = useContext(UserContext) as unknown as IValue;
   useEffect(() => {
     const dataWines = async () => {
       const res = await fetch('https://wine-back-test.herokuapp.com/products?page=1&limit=45')
@@ -52,14 +54,14 @@ export default function () {
               />
               <TtitleText>{item.name}</TtitleText>
               <ViewPriceBoth>
-                <PriceStrached>R$ {item.priceNonMember}</PriceStrached>
+                <PriceStrached>R$ {item.priceNonMember.toString().replace(".", ",")}</PriceStrached>
                 <Discount>{Number((item.discount / item.priceNonMember).toFixed(2)) * 100}% OFF</Discount>
               </ViewPriceBoth>
               <ViewPriceBoth style={{ marginBottom: 20, marginTop: 10 }}>
                 <MemberPrice>SÓCIO WINE</MemberPrice>
-                <PriceMemberPink>R$ {item.priceMember}</PriceMemberPink>
+                <PriceMemberPink>R$ {item.priceMember.toString().replace(".", ",")}</PriceMemberPink>
               </ViewPriceBoth>
-              <TextNoMember style={{ marginBottom: -12 }}>NÃO SÓCIO R$ {item.priceNonMember}</TextNoMember>
+              <TextNoMember style={{ marginBottom: -12 }}>NÃO SÓCIO R$ {item.priceNonMember.toString().replace(".", ",")}</TextNoMember>
               <StickImage
                 source={Selos}
               />
@@ -74,7 +76,10 @@ export default function () {
                 height: 40
               }}
               title="Adicionar"
-              titleStyle={{ fontFamily: "Lato", fontSize: 14, textAlign: 'center' }}
+              titleStyle={{ fontFamily: "Lato", fontSize: 14, textAlign: 'center', fontWeight: "700", lineHeight: 16 }}
+              onPress={() => dispatch({
+                type: 'SetCounter'
+              })}
             />
 
           </CardContainer>

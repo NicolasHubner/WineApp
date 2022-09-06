@@ -1,9 +1,13 @@
 import styled from 'styled-components/native';
 
+
+// Estilização da Imagem do Vinho
 export const WineImage = styled.Image`
   width: 220px;
   height: 334px;
 `
+
+// Estilização do Título do Vinho
 export const WineTitle = styled.Text`
   font-family: 'NeoSans';
   font-weight: 500;
@@ -12,6 +16,7 @@ export const WineTitle = styled.Text`
   text-align: center;
 
 `
+// Estilização em FlexBox dos detalhes do Vinho selecionado
 export const ContainerInfo = styled.View`
   flex-direction: row;
   width: 70%;
@@ -45,12 +50,15 @@ export const Description = styled.Text`
 // Estilização para parte final(Preço e Botão de adicionar) da Página do Produto
 
 export const ContainerPriceAdd = styled.View`
+  position: absolute;
+  bottom: 0;
   width: 100%;
   background-color: white;
   height: 80px;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.0627185);
 `
 //a) Apenas o Preço e seus itens
 
