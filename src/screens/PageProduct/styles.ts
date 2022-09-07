@@ -9,7 +9,7 @@ export const WineImage = styled.Image`
 
 // Estilização do Título do Vinho
 export const WineTitle = styled.Text`
-  font-family: 'NeoSans';
+  font-family: sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -38,13 +38,13 @@ export const TitleDescription = styled.Text`
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
-  font-family: 'NeoSans';
+  font-family: sans-serif;
   margin-bottom: 9px;
 `
 export const Description = styled.Text`
   font-size: 16px;
   font-weight: 400;
-  font-family: 'Lato';
+  font-family: sans-serif;
 `
 
 // Estilização para parte final(Preço e Botão de adicionar) da Página do Produto
@@ -70,19 +70,19 @@ export const ContainerPrice = styled.View`
 export const PriceNoMember = styled.Text`
   font-size: 10px;
   font-weight: 700;
-  font-family: 'Lato';
+  font-family: sans-serif;
 `
 export const PriceMemberPink = styled.Text`
   font-size: 20px;
   font-weight: 700;
-  font-family: 'Lato';
+  font-family: sans-serif;
   line-height: 28px;
   color: #C81A78;
 `
 export const PriceTotal = styled.Text`
   color: #555555;
   font-size: 13px;
-  font-family: 'Lato';
+  font-family: sans-serif;
   font-weight: 700;
   line-height: 20px;
   text-decoration-line: line-through;

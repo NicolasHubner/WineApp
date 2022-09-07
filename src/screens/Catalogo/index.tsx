@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { SafeAreaView, Text, Image, TextInput } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -9,19 +9,21 @@ import { useFonts } from 'expo-font';
 import SearchBar from '../../assets/Search.png'
 import { useNavigation } from '@react-navigation/native';
 import { UserContext, IValue } from '../../context/UserContext';
+import { PriceConvert } from '../../helpers/priceConverter';
 
 
 export default function () {
   const [data, setData] = useState<IData | null>(null);
+  const navigation = useNavigation() as INavigation;
+  const { dispatch } = useContext(UserContext) as unknown as IValue;
 
   const [fontsLoaded] = useFonts({
     'Lato': require('../../assets/fonts/Lato-Regular.ttf'),
     'OpenSans': require('../../assets/fonts/open-sans-v34-latin-regular.ttf'),
-    // 'NeoSans': require('../../assets/fonts/NeoSansPro-Regular.ttf')
+    'NeoSans': require('../../assets/fonts/NeoSansPro-Regular.ttf')
   });
 
-  const navigation = useNavigation() as INavigation;
-  const { dispatch } = useContext(UserContext) as unknown as IValue;
+
   useEffect(() => {
     const dataWines = async () => {
       const res = await fetch('https://wine-back-test.herokuapp.com/products?page=1&limit=45')
@@ -54,14 +56,14 @@ export default function () {
               />
               <TtitleText>{item.name}</TtitleText>
               <ViewPriceBoth>
-                <PriceStrached>R$ {item.priceNonMember.toString().replace(".", ",")}</PriceStrached>
+                <PriceStrached>R$ {PriceConvert(item.priceNonMember)}</PriceStrached>
                 <Discount>{Number((item.discount / item.priceNonMember).toFixed(2)) * 100}% OFF</Discount>
               </ViewPriceBoth>
               <ViewPriceBoth style={{ marginBottom: 20, marginTop: 10 }}>
                 <MemberPrice>SÓCIO WINE</MemberPrice>
-                <PriceMemberPink>R$ {item.priceMember.toString().replace(".", ",")}</PriceMemberPink>
+                <PriceMemberPink>R$ {PriceConvert(item.priceMember)}</PriceMemberPink>
               </ViewPriceBoth>
-              <TextNoMember style={{ marginBottom: -12 }}>NÃO SÓCIO R$ {item.priceNonMember.toString().replace(".", ",")}</TextNoMember>
+              <TextNoMember style={{ marginBottom: -12 }}>NÃO SÓCIO R$ {PriceConvert(item.priceNonMember)}</TextNoMember>
               <StickImage
                 source={Selos}
               />

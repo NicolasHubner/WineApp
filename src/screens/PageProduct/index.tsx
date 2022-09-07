@@ -8,6 +8,7 @@ import { useFonts } from 'expo-font';
 import { ContainerDescription, ContainerInfo, ContainerPrice, ContainerPriceAdd, Description, Discount, PriceMemberPink, PriceNoMember, PriceTotal, TitleDescription, WineImage, WineTitle } from './styles';
 import { Button } from 'react-native-elements';
 import { UserContext, IValue } from '../../context/UserContext';
+import { PriceConvert } from '../../helpers/priceConverter';
 
 export interface IProps {
   route: {
@@ -24,7 +25,7 @@ export default function (props: IProps) {
   const [fontsLoaded] = useFonts({
     'Lato': require('../../assets/fonts/Lato-Regular.ttf'),
     'OpenSans': require('../../assets/fonts/open-sans-v34-latin-regular.ttf'),
-    // 'NeoSans': require('../../assets/fonts/NeoSansPro-Regular.ttf')
+    'NeoSans': require('../../assets/fonts/NeoSansPro-Regular.ttf')
   });
 
   return (
@@ -45,9 +46,9 @@ export default function (props: IProps) {
       <ContainerPriceAdd>
         <ContainerPrice>
           <Discount>{Number((item.discount / item.priceNonMember).toFixed(2)) * 100}% OFF</Discount>
-          <PriceTotal>R${item.price.toString().replace(".", ",")}</PriceTotal>
-          <PriceMemberPink>R$ {item.priceMember.toString().replace(".", ",")}</PriceMemberPink>
-          <PriceNoMember>PREÇO NÃO SÓCIO R$ {item.priceNonMember.toString().replace(".", ",")}</PriceNoMember>
+          <PriceTotal>R${PriceConvert(item.price)}</PriceTotal>
+          <PriceMemberPink>R$ {PriceConvert(item.priceMember)}</PriceMemberPink>
+          <PriceNoMember>PREÇO NÃO SÓCIO R$ {PriceConvert(item.priceNonMember)}</PriceNoMember>
         </ContainerPrice>
         <Button
               buttonStyle={{

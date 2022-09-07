@@ -25,7 +25,7 @@ export const StickImage = styled.Image`
 
 `
 export const MemberPrice = styled.Text`
-  font-family: 'Lato';
+  font-family: sans-serif;
   width: 35px;
   /* height: 2px; */
   font-size: 10px;
@@ -34,7 +34,7 @@ export const MemberPrice = styled.Text`
 `
 export const TtitleText = styled.Text`
   width: 90%;
-  font-family: 'Lato';
+  font-family: sans-serif;
   text-align: center;
   margin-bottom: 12px;
   font-weight: 700;
@@ -50,7 +50,7 @@ export const ViewPriceBoth = styled.View`
 `
 export const TextNoMember = styled.Text`
   font-size: 11px;
-  font-family: 'Lato';
+  font-family: sans-serif;
   font-weight: 400;
   color: #888888;
 `
@@ -61,7 +61,7 @@ export const PriceMemberPink = styled.Text`
   font-weight: 700;
 `
 export const PriceStrached = styled.Text`
-  font-family: 'Lato';
+  font-family: sans-serif;
   font-weight: 400;
   font-size: 12px;
   line-height: 12px;
@@ -82,7 +82,7 @@ export const Discount = styled.Text`
 `
 export const CounterItems = styled.Text`
   margin-left: 30px;
-  font-family: 'NeoSans';
+  font-family: sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
