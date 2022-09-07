@@ -29,7 +29,7 @@ export default function (props: IProps) {
   });
 
   return (
-    <ScrollView contentContainerStyle={{flexDirection: 'column', alignItems: 'center', backgroundColor: '#DEDEDE', height: '100%'}}>
+    <ScrollView contentContainerStyle={{flexDirection: 'column', alignItems: 'center', backgroundColor: '#DEDEDE'}}>
       <WineImage source={{ uri: item.image }} />
       <WineTitle>{item.name}</WineTitle>
       <ContainerInfo>

@@ -32,7 +32,7 @@ export const ContainerDescription = styled.View`
   justify-content: flex-start;
   width: 90%;
   margin-top: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 120px;
 `
 export const TitleDescription = styled.Text`
   font-size: 20px;
