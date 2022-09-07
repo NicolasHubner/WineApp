@@ -5,6 +5,7 @@ import MainStack from './src/stacks/MainStack'
 import UserContextProvider from './src/context/UserContext'
 import { Platform } from 'react-native';
 
+
 if (Platform.OS === 'android') {
   require('intl');
   require('intl/locale-data/jsonp/pt-BR');
@@ -12,11 +13,11 @@ if (Platform.OS === 'android') {
 
 export default function App() {
   return (
-    <UserContextProvider>
-      <NavigationContainer>
+    <NavigationContainer>
+      <UserContextProvider>
         <MainStack />
         <StatusBar />
-      </NavigationContainer>
-    </UserContextProvider>
+      </UserContextProvider>
+    </NavigationContainer>
   )
 }
