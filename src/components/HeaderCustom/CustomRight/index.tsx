@@ -16,7 +16,7 @@ export default function CustomHeader (){
     <Text
     style={{position: 'absolute', marginTop: 85, marginLeft: 42, backgroundColor: 'white',color: '#00B495'}}
     >
-      {state.counter}
+      {state && state.counter}
     </Text>
   </View>
     )
