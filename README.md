@@ -1,53 +1,53 @@
-nvm # app_pontua
+## WineApp
 
-## Preparando o ambiente
+## Preparing the environment
 
-### Instalando o Node.js
+### Installing Node.js
 
-Para instalar o Node.js, acesse o site [https://nodejs.org/](https://nodejs.org/) e baixe a versão 18.19.1(LTS)
+To install Node.js, go to the website [https://nodejs.org/](https://nodejs.org/) and download version 18.19.1(LTS)
 
-### Instalando o Expo
+### Installing Expo
 
-Após instalar o Node.js, abra o terminal e execute o comando:
+After installing Node.js, open the terminal and run the command:
 
 ```bash
 npm install -g expo-cli
 ```
 
-### Instalando o Yarn
+### Installing Yarn
 
-Após instalar o Node.js, abra o terminal e execute o comando:
+After installing Node.js, open the terminal and run the command:
 
 ```bash
 npm install -g yarn
 ```
 
-### Instalando o Git
+### Installing Git
 
-Para instalar o Git, acesse o site [https://git-scm.com/](https://git-scm.com/) e baixe a versão para o seu sistema
-operacional.
+To install Git, access the website [https://git-scm.com/](https://git-scm.com/) and download the version for your system
+operational.
 
-### Clonando o repositório
+### Cloning the repository
 
-Após instalar o Git, abra o terminal e execute o comando:
+After installing Git, open the terminal and run the command:
 
 ```bash
 git clone
 ```
 
-### Instalando as dependências
+### Installing dependencies
 
-Após clonar o repositório, abra o terminal e execute o comando:
+After cloning the repository, open the terminal and run the command:
 
 ```bash
 yarn
 ```
 
-### Iniciando o projeto
+### Starting the project
 
-Deverá rodar os comandos abaixo para iniciar o projeto:
+You must run the commands below to start the project:
 
-IOS
+iOS
 
 ```bash
  yarn ios
@@ -59,9 +59,9 @@ ANDROID
  yarn android
 ```
 
-### Executando o projeto
+### Running the project
 
-Após iniciar o projeto, abra o terminal e execute o comando:
+After starting the project, open the terminal and run the command:
 
 ```bash
 yarn start
